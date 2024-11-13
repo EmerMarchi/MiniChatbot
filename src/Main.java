@@ -15,11 +15,11 @@ public class Main {
             System.out.print("Usuário :");
             respostaUsuario = sc.nextLine();
 
-            bot.nome(respostaUsuario);
-            bot.saudacao(respostaUsuario);
+            bot.criarMiniChatbot(respostaUsuario);
 
 
-        }while (!respostaUsuario.contains("Desculpe, não entendi sua pergunta. Pode reformular?"));
+
+        }while (!respostaUsuario.contains("Sair"));
 
 
 

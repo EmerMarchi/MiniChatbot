@@ -8,17 +8,39 @@ public class MiniChatbot {
         return "MiniChatbot: Olá! Eu sou o MiniChatbot. Como posso te ajudar hoje?";
     }
 
-    private void retornarErro(){
+    public void retornarErro(){
         System.out.println("MiniChatbot: Desculpe, não entendi sua pergunta. Pode reformular?");
     }
+
+
+    public boolean criarMiniChatbot(String texto){
+
+        if(nome(texto)){
+            return true;
+        }
+
+        if(saudacao(texto)){
+            return true;
+        }
+
+        if(estado(texto)){
+            return true;
+        }
+
+        retornarErro();
+        return false;
+    }
+
+
+
     public boolean nome(String respostaUsuario) {
-        List<String> perguntasNome = Arrays.asList("qual é o seu nome?", "", "qual o seu nome?", "me diga seu nome", "quem é você?");
+    List<String> perguntasNome = Arrays.asList("seu nome", "quem é você", "nome");
 
         if (perguntasNome.contains(respostaUsuario.toLowerCase())){
             System.out.println("MiniChatbot: Eu sou o MiniChatbot, seu assistente virtual!");
             return true;
         }
-        retornarErro();
+
         return false;
     }
 
@@ -30,7 +52,17 @@ public class MiniChatbot {
             return true;
         }
 
-        retornarErro();
+
+        return false;
+    }
+
+    public boolean estado(String respostaUsuario) {
+        List<String> estadoReconhecido = Arrays.asList("você está");
+
+        if(estadoReconhecido.contains(respostaUsuario.toLowerCase())){
+            System.out.println("MiniChatbot: Estou funcionando perfeitamente, obrigado!");
+            return true;
+        }
         return false;
     }
 
